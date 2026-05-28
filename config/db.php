@@ -1,9 +1,9 @@
 <?php
 // config/db.php
 $host = 'localhost';
-$dbname = 'cheap_droid_db';
-$username = 'root';
-$password = '';
+$dbname = 'stanvicc_api';
+$username = 'stanvicc_stanvicbest';
+$password = 'Avalanche@25';
 
 try {
     $conn = new mysqli($host, $username, $password, $dbname);
