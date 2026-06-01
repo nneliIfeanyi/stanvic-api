@@ -1,8 +1,8 @@
 <?php
 // config/db.php
 $host = 'localhost';
-$dbname = 'stanvicc_api';
-$username = 'stanvicc_stanvicbest';
+$dbname = 'revivall_api';
+$username = 'revivall_stanvicbest';
 $password = 'Avalanche@25';
 
 try {
