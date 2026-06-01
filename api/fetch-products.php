@@ -1,30 +1,16 @@
 <?php
-// Enable error reporting for debugging
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+require_once '../config/db.php';
 // CORS
-//header("Access-Control-Allow-Origin: *");
-$allowedOrigins = [
-    'http://localhost',
-    'http://127.0.0.1',
-    'https://budgetdroid.com.ng',
-    'https://www.budgetdroid.com.ng',
-];
-if (in_array($_SERVER['HTTP_ORIGIN'] ?? '', $allowedOrigins)) {
-    header("Access-Control-Allow-Origin: " . $_SERVER['HTTP_ORIGIN']);
-}
-// header("Access-Control-Allow-Methods: GET, OPTIONS");
-// header("Access-Control-Allow-Headers: Content-Type");
-// header("Content-Type: application/json");
-header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
-header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With, Accept, Origin");
-header("Access-Control-Max-Age: 3600");
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+header("Content-Type: application/json");
+
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(200);
     exit;
 }
-require_once '../config/db.php';
+
 try {
     $result = $conn->query("SELECT id, name, price, category, image1, image2, image3, description 
                            FROM products 
